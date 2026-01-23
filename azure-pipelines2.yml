@@ -1,26 +1,22 @@
-stages:
-- stage: Build
-  dependsOn: []
-  jobs:
-  - job: BuildJob
-    steps:
-    - script: echo "Build"
+trigger:
+- main
 
-- stage: Test
-  dependsOn: Build
-  jobs:
-  - job: TestJob
-    steps:
-    - script: |
-        echo "TestJob..."
-        sleep 10
+pool:
+  vmImage: 'ubuntu-latest'
 
+jobs:
+- job: JobA
+  displayName: 'Job A'
+  steps:
+  - script: |
+      echo "Job A is running"
+      sleep 10
+    displayName: 'Run Job A'
 
-- stage: Deploy
-  dependsOn: Build  
-  jobs:
-  - job: DeployJob
-    steps:  
-    - script: |
-       echo "Deploy"
-       sleep 10
+- job: JobB
+  displayName: 'Job B'
+  steps:
+  - script: |
+      echo "Job B is running"
+      sleep 10
+    displayName: 'Run Job B'
