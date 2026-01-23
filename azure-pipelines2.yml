@@ -9,7 +9,7 @@ jobs:
   displayName: 'Job A'
   steps:
   - script: |
-      echo "Job A is running"
+      echo "Job A is running temp"
       sleep 10
     displayName: 'Run Job A'
 
@@ -17,7 +17,7 @@ jobs:
   displayName: 'Job B'
   steps:
   - script: |
-      echo "Job B is running"
+      echo "Job B is running temp"
       sleep 10
     displayName: 'Run Job B'
   - task: DotNetCoreCLI@2
