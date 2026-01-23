@@ -20,3 +20,7 @@ jobs:
       echo "Job B is running"
       sleep 10
     displayName: 'Run Job B'
+  - task: DotNetCoreCLI@2
+    inputs:
+      command: 'restore'
+      feedsToUse: 'select'
