@@ -1,21 +1,26 @@
-trigger:
-- main
-
 stages:
 - stage: Build
-  displayName: 'Build Stage'
+  dependsOn: []
   jobs:
   - job: BuildJob
     steps:
-    - script: |
-        echo "Building..."
-        sleep 20
+    - script: echo "Build"
 
 - stage: Test
-  displayName: 'Test Stage'
+  dependsOn: Build
   jobs:
   - job: TestJob
     steps:
     - script: |
-        echo "Testing..."
-        sleep 20
+        echo "TestJob..."
+        sleep 10
+
+
+- stage: Deploy
+  dependsOn: Build  
+  jobs:
+  - job: DeployJob
+    steps:  
+    - script: |
+       echo "Deploy"
+       sleep 10
