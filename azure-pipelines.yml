@@ -25,6 +25,7 @@ stages:
 
 - stage: B
   displayName: "Stage B - Deploy"
+  dependsOn: A
   jobs:
   - job: B1
     displayName: "Job B1 - Deploy to Staging"
